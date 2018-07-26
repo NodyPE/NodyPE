@@ -7,8 +7,10 @@ module.exports.handleBooting = async (config, Logger, RakNet) => {
         port: parseInt(config.Server_Port)
     }, config.MOTD, '1.0.5')
         await Logger.info('Server started on port: ' + config.Server_Port)
-    server.on('connection', client => {
-        client.on('login', () => {
-            Logger.info(client.name + " joined! [" + client.address + "]")
-        })
-    })};
+    require("./Events/EventLoader.js")(server, Logger)
+}
+
+module.exports.loadCommands = async (config, Logger, RakNet) => {
+    require("./Command/Command.js")(config, Logger)
+    Logger.info("Commands loaded successfully")
+}

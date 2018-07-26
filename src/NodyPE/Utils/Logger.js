@@ -12,3 +12,10 @@ module.exports.debug = async (log) => {
 module.exports.warning = async (log) => {
     console.log(chalk.magenta(prefix) + chalk.yellow(log))
 }
+
+module.exports.broadcast = async (log) => {
+    console.log(chalk.yellow(log))
+}
+module.exports.normal = async (log) => {
+    console.log(log)
+}
