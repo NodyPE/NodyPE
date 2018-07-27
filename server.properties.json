@@ -1,8 +1,10 @@
 {
   "Server_Port": "19132",
-  "Level_Name": "world",
-  "PVP": "true",
-  "Default_Gamemode": "0",
-  "Max_Player": "20",
-  "MOTD": "A NodyPE server!"
+    "HOST": "0.0.0.0",
+    "Server_Port": 19132,
+    "Level_Name": "world",
+    "PVP": true,
+    "Default_Gamemode": 0,
+    "Max_Player": 20,
+    "MOTD": "A NodyPE server!"
 }
