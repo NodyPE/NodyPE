@@ -1,5 +1,8 @@
 {
+<<<<<<< HEAD
   "Server_Port": "19132",
+=======
+>>>>>>> b2366e1691ee61d99fa21ee6dba0ed23317da609
     "HOST": "0.0.0.0",
     "Server_Port": 19132,
     "Level_Name": "world",
