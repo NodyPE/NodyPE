@@ -1,6 +1,7 @@
-module.exports = async (config, Logger, RakNet) => {
+module.exports = async (config, Logger, default_Aliases) => {
 const readline = require('readline');
 var fs = require("fs")
+
 waitForCommand()
 var chalk = require("chalk")
 async function waitForCommand() {
@@ -13,10 +14,15 @@ async function waitForCommand() {
         const args = answer.trim().split(/ +/g);
         const command = args.shift().toLowerCase();
         try {
-            require(`./defaults/${command}.js`)(Logger, args)
+            if (default_Aliases[command]) {
+                require("./defaults/" + default_Aliases[command].Handler)(Logger, args)
+            } else {
+                Logger.error(`The command "${command}" does not exist! Use ? for a list of commands.`)
 
+            }
         } catch(error) {
-            Logger.error(`The command "${command}" does not exist! Use help for a list of commands.`)
+            Logger.error(`There was an error executing command "` + command + `"`)
+            Logger.error(error)
         }
 
 

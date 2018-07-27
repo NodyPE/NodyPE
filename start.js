@@ -1,8 +1,20 @@
 const RakNet = require('nodype-raknet')
-const config = require("./server.properties.json")
+const fs = require("fs")
 const Logger = require("./src/NodyPE/Utils/Logger.js")
 const NodyPE = require("./src/NodyPE/NodyPE.js")
-const parser = RakNet.createDeserializer()
+const configUT = require("./src/NodyPE/Utils/Config.js")
 
-NodyPE.handleBooting(config, Logger, RakNet)
-NodyPE.loadCommands(config, Logger, RakNet)
+if(configUT.getConfig(Logger, "server.properties.json")){
+    configUT.createConfig(Logger, "server.properties.json", true)
+}
+load()
+async function load() {
+
+    var start = new Date()
+    const config = await configUT.getConfig(Logger, "server.properties.json")
+
+    const parser = RakNet.createDeserializer()
+
+    NodyPE.handleBooting(config, Logger, RakNet)
+    NodyPE.loadCommands(config, Logger, RakNet, start)
+}
