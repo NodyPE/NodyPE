@@ -1,4 +1,3 @@
-
 module.exports = async (Logger, Args)  => {
     var Net = require("../../Network/Network.js")
     var chalk = require("chalk")

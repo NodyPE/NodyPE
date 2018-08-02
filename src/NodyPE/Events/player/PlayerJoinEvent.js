@@ -1,3 +1,3 @@
 module.exports = async (client, Logger) => {
-    Logger.info(client.name + " joined! [" + client.address + ":" + Client.port + "]")
+    Logger.info(client.name + " joined! [" + client.address + "]")
 }
