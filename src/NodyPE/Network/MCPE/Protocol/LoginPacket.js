@@ -1,3 +1,0 @@
-/*
-Everything related to LoginPacket
- */
